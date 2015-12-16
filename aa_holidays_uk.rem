@@ -1,0 +1,69 @@
+REM 01 Jan MSG New Year's Day (Bank Holiday)%
+REM Mon 1 May MSG May Day (Bank Holiday)%
+REM Mon 1 Jun -7 MSG Spring Bank Holiday (Whitsun)%
+REM Mon 1 Sep -7 MSG Summer Bank Holiday%
+
+REM 25 Dec MSG Christmas Day%
+# Boxing Day is the first weekday after Christmas
+REM Mon Tue Wed Thu Fri 26 Dec MSG Boxing Day (Bank Holiday)%
+
+# Easter stuff
+SET easter EASTERDATE(YEAR(TODAY()))
+#!P: Next line may have expired, but contains non-constant expression
+REM [TRIGGER(easter-2)] MSG Good Friday (Bank Holiday)%
+#!P: Next line may have expired, but contains non-constant expression
+REM [TRIGGER(easter)] MSG Easter Sunday%
+#!P: Next line may have expired, but contains non-constant expression
+REM [TRIGGER(easter+1)] MSG Easter Monday (Bank Holiday)%
+
+# Mother's Day is defined as the 4th Sunday of Lent. Lent begins on
+# Ash Wednesday (easter-46), so the 4th Sunday is easter-21
+#!P: Next line may have expired, but contains non-constant expression
+REM [TRIGGER(easter-21)] MSG Mother's Day%
+
+# other annual dates or holidays I want to be reminded of:
+REM 25 Jan MSG Burns Night%
+REM 14 Feb MSG Valentine's Day%
+REM 01 Mar MSG St. David's Day%
+REM 17 Mar MSG St. Patrick's Day%
+REM 21 Apr MSG The Queen's Birthday (her actual birthday)%
+REM 23 Apr MSG St. George's Day%
+REM 08 May MSG VE Day%
+REM Sun 15 Jun MSG Father's Day%
+REM 31 Oct MSG Halloween%
+REM 05 Nov MSG Bonfire Night%
+REM 11 Nov MSG Rememberance Day%
+REM 30 Nov MSG St. Andrew's Day%
+
+REM Sun 8 Nov MSG Remembrance Sunday%
+
+REM Mon Tue Wed Thu Fri 1 Jan MSG New Year's Day Bank Holiday
+
+SET easter EASTERDATE(YEAR(TODAY()))
+
+#!P: Next line may have expired, but contains non-constant expression
+REM [trigger(easter-2)] MSG Good Friday Bank Holiday
+#!P: Next line may have expired, but contains non-constant expression
+REM [trigger(easter+1)] MSG Easter Monday Bank Holiday
+
+REM Mon 1 May MSG May Day Bank Holiday
+
+# Spring BH has been moved forward 1 week in 2012 to coincide with Jubilee
+#!P: Cannot purge SATISFY-type reminders
+REM Mon 1 Jun --7 SATISFY year(trigdate()) != 2012
+IF trigvalid()
+        REM [trigdate()] MSG Spring Bank Holiday
+        ENDIF
+
+REM Mon 1 Sep --7 MSG Summer Bank Holiday
+
+# First calculate the first weekday on or after 25th Dec
+# Force it to current year otherwise it will search forward into next year
+SET XmasBH evaltrig("Mon Tue Wed Thu Fri 25 Dec", date(year(today()), 12, 25))
+
+#Set this date as Christmas Bank Holiday
+REM [XmasBH] MSG Christmas Bank Holiday
+
+#Set the next day (skipping Sat and Sun) to Boxing Day Bank Holiday
+REM [trigger(XmasBH+1)] OMIT Sat Sun AFTER MSG Boxing Day Bank Holiday
+

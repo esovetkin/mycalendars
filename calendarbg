@@ -1,0 +1,18 @@
+#!/bin/bash
+
+## generate image with calendar for this month and put it to the
+## background
+
+remind  -pa ~/.cal |\
+ rem2ps -c3 -st 1 -shd 4\
+        -se 5 -t 0.03 -olr 65\
+        -ob 50 -ot 44 -b 3 -l >\
+        ~/.cal/cal.ps\
+    && convert -density 600 -negate\
+               -quality 100 -trim\
+               -rotate 90\
+               ~/.cal/cal.ps\
+               ~/.cal/cal.png\
+    && feh --image-bg black --bg-max\
+           ~/.cal/cal.png
+

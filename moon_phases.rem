@@ -1,0 +1,27 @@
+SET newmoondate = [moondate(0)]
+#!P: The next IF evaluated false...
+#!P: REM statements in IF block not checked for purging.
+IF today() == newmoondate
+MSG New Moon
+ENDIF
+
+# SET firstquartermoondate = [moondate(1)]
+# #!P: The next IF evaluated false...
+# #!P: REM statements in IF block not checked for purging.
+# IF today() == firstquartermoondate
+# MSG First Quarter
+# ENDIF
+
+SET fullmoondate = [moondate(2)]
+#!P: The next IF evaluated false...
+#!P: REM statements in IF block not checked for purging.
+IF today() == fullmoondate
+MSG Full Moon
+ENDIF
+
+# SET lastquartermoondate = [moondate(3)]
+# #!P: The next IF evaluated false...
+# #!P: REM statements in IF block not checked for purging.
+# IF today() == lastquartermoondate
+# MSG Last Quarter
+# ENDIF

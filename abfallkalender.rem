@@ -1,0 +1,49 @@
+## The file describes the rubbish day
+
+FSET omitbeforewed(d) iif(isomitted(d) || isomitted(d+1) || isomitted(d+2), "OMIT Wed AFTER", "")
+FSET omitafterwed(d)  iif(isomitted(d+3) || isomitted(d+4), "OMIT Wed BEFORE", "")
+
+SET gruene_tonne 0
+SET gelber_tonne 0
+SET weis_tonne 0
+SET blau_tonne 0
+
+REM Jan 4 2016 *7 SCANFROM [trigger(today()-7)] SATISFY 1
+REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
+IF today() == trigdate()
+   SET gruene_tonne 1
+ENDIF  
+
+REM Jan 11 2016 *14 SCANFROM [trigger(today()-7)] SATISFY 1
+REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
+IF today() == trigdate()
+   SET gelber_tonne 1
+ENDIF  
+
+REM Jan 25 2016 *28 SCANFROM [trigger(today()-7)] SATISFY 1
+REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
+IF today() == trigdate()
+   SET weis_tonne 1
+ENDIF  
+
+REM Jan 25 2016 *28 SCANFROM [trigger(today()-7)] SATISFY 1
+REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
+IF today() == trigdate()
+   SET blau_tonne 1
+ENDIF  
+
+IF 1 == gruene_tonne && 0 == gelber_tonne && 0 == blau_tonne && 0 == weis_tonne
+ MSG Tonne: Gr
+ENDIF
+
+IF 1 == gruene_tonne && 1 == gelber_tonne && 0 == blau_tonne && 0 == weis_tonne
+ MSG Tonne: Gr, Gl
+ENDIF
+
+IF 1 == gruene_tonne && 1 == gelber_tonne && 1 == blau_tonne && 0 == weis_tonne
+ MSG Tonne: Gr, Gl, Bl
+ENDIF
+
+IF 1 == gruene_tonne && 1 == gelber_tonne && 1 == blau_tonne && 1 == weis_tonne
+ MSG Tonne: Gr, Gl, Bl, We
+ENDIF

@@ -1,0 +1,7 @@
+# shade date in calendar if today is omitted
+#!P: The next IF evaluated false...
+#!P: REM statements in IF block not checked for purging.
+IF [isomitted(today())]
+SPECIAL SHADE 128
+#SPECIAL COLOR 255 0 0
+ENDIF
