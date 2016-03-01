@@ -9,16 +9,12 @@ REM Mon Tue Wed Thu Fri 26 Dec MSG Boxing Day (Bank Holiday)%
 
 # Easter stuff
 SET easter EASTERDATE(YEAR(TODAY()))
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter-2)] MSG Good Friday (Bank Holiday)%
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter)] MSG Easter Sunday%
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter+1)] MSG Easter Monday (Bank Holiday)%
 
 # Mother's Day is defined as the 4th Sunday of Lent. Lent begins on
 # Ash Wednesday (easter-46), so the 4th Sunday is easter-21
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter-21)] MSG Mother's Day%
 
 # other annual dates or holidays I want to be reminded of:
@@ -41,9 +37,7 @@ REM Mon Tue Wed Thu Fri 1 Jan MSG New Year's Day Bank Holiday
 
 SET easter EASTERDATE(YEAR(TODAY()))
 
-#!P: Next line may have expired, but contains non-constant expression
 REM [trigger(easter-2)] MSG Good Friday Bank Holiday
-#!P: Next line may have expired, but contains non-constant expression
 REM [trigger(easter+1)] MSG Easter Monday Bank Holiday
 
 REM Mon 1 May MSG May Day Bank Holiday

@@ -1,0 +1,62 @@
+
+# Chinese New Year
+
+SET newmoondate = [moondate(0)]
+
+#!P: The next IF evaluated false...
+#!P: REM statements in IF block not checked for purging.
+IF today() == newmoondate && \
+   ((monnum(today()) == 1 && day(today()) >= 21) || \
+   (monnum(today()) == 2 && day(today()) <= 20))
+
+   IF (year(today()) % 12 == 0)
+   SET chinese_year_name = "Monkey"
+   ENDIF
+
+   IF (year(today()) % 12 == 1)
+   SET chinese_year_name = "Rooster"
+   ENDIF
+
+   IF (year(today()) % 12 == 2)
+   SET chinese_year_name = "Dog"
+   ENDIF
+
+   IF (year(today()) % 12 == 3)
+   SET chinese_year_name = "Pig"
+   ENDIF
+
+   IF (year(today()) % 12 == 4)
+   SET chinese_year_name = "Rat"
+   ENDIF
+
+   IF (year(today()) % 12 == 5)
+   SET chinese_year_name = "Ox"
+   ENDIF
+
+   IF (year(today()) % 12 == 6)
+   SET chinese_year_name = "Tiger"
+   ENDIF
+
+   IF (year(today()) % 12 == 7)
+   SET chinese_year_name = "Rabbit"
+   ENDIF
+
+   IF (year(today()) % 12 == 8)
+   SET chinese_year_name = "Dragon"
+   ENDIF
+
+   IF (year(today()) % 12 == 9)
+   SET chinese_year_name = "Snake"
+   ENDIF
+  
+   IF (year(today()) % 12 == 10)
+   SET chinese_year_name = "Horse"
+   ENDIF
+
+   IF (year(today()) % 12 == 11)
+   SET chinese_year_name = "Goat"
+   ENDIF
+
+
+   MSG Chinese New Year: [chinese_year_name]
+ENDIF

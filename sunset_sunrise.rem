@@ -1,8 +1,8 @@
-# de;aachen;50.770833;6.105278
+# de;laurensberg;50.8;6.05
 SET $LongDeg -6
-SET $LongMin 6
-SET $LongSec 19
+SET $LongMin 3
+SET $LongSec 0
 SET $LatDeg 50
-SET $LatMin 46
-SET $LatSec 14
+SET $LatMin 48
+SET $LatSec 0
 MSG [dawn(trigdate())], [sunrise(trigdate())], [sunset(trigdate())], [dusk(trigdate())]%

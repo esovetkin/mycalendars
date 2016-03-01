@@ -13,6 +13,8 @@ IF "Tishrey" == hebrewmonth && (1 == hebrewday || 2 == hebrewday)
 MSG Rosh Hashana
 ENDIF
 
+#!P: The next IF evaluated false...
+#!P: REM statements in IF block not checked for purging.
 IF "Kislev" == hebrewmonth && (25 == hebrewday)
 MSG Hanukkah
 ENDIF

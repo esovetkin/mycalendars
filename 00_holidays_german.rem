@@ -5,26 +5,18 @@
 SET easter EASTERDATE(YEAR(TODAY()))
 
 #!P: Next line may have expired, but contains non-constant expression
-OMIT [TRIGGER(easter-46)]   MSG %"Aschermittwoch (Stille Tage)%"
+OMIT [TRIGGER(easter-48)] MSG %"Rosenmontag%"
 #!P: Next line may have expired, but contains non-constant expression
+REM [TRIGGER(easter-46)]   MSG %"Aschermittwoch (Stille Tage)%"
 REM [TRIGGER(easter-7)]    MSG %"Palmsontag%"
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter-3)]    MSG %"Gruendonnerstag (Stille Tage)%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter-2)]   MSG %"Karfreitag (Stille Tage)%"
-#!P: Next line may have expired, but contains non-constant expression
 REM [TRIGGER(easter-1)]    MSG %"Karsamstag (Stille Tage)%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter)]     MSG %"Ostern (Stille Tage)%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter+1)]   MSG %"Ostermontag%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter+39)]  MSG %"Christi Himmelfahrt%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter+49)]  MSG %"Pfingsten (Stille Tage)%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter+50)]  MSG %"Pfingstmontag%"
-#!P: Next line may have expired, but contains non-constant expression
 OMIT [TRIGGER(easter+60)]  MSG %"Fronleichnam%"
 
 # Some holidays are omitted, some are not.  You may want to change
