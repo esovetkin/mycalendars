@@ -7,67 +7,64 @@ SET gruene_tonne 0
 SET gelber_tonne 0
 SET weis_tonne 0
 SET blau_tonne 0
+SET day_before 0
 
-#!P: Cannot purge SATISFY-type reminders
 REM Dec 14 2015 *7 SCANFROM [trigger(today()-7)] SATISFY 1
-#!P: Cannot purge SATISFY-type reminders
 REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF today() == trigdate()
    SET gruene_tonne 1
+ELSE
+  IF today() + 1 == trigdate()
+      SET day_before 1
+  ENDIF
 ENDIF  
 
-#!P: Cannot purge SATISFY-type reminders
 REM Dec 14 2015 *14 SCANFROM [trigger(today()-7)] SATISFY 1
-#!P: Cannot purge SATISFY-type reminders
 REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF today() == trigdate()
    SET gelber_tonne 1
+ELSE
+  IF today() + 1 == trigdate()
+      SET day_before 1
+  ENDIF
 ENDIF  
 
-#!P: Cannot purge SATISFY-type reminders
 REM Nov 30 2015 *28 SCANFROM [trigger(today()-7)] SATISFY 1
-#!P: Cannot purge SATISFY-type reminders
 REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF today() == trigdate()
    SET weis_tonne 1
+ELSE
+  IF today() + 1 == trigdate()
+      SET day_before 1
+  ENDIF
 ENDIF  
 
-#!P: Cannot purge SATISFY-type reminders
 REM Nov 30 2015 *28 SCANFROM [trigger(today()-7)] SATISFY 1
-#!P: Cannot purge SATISFY-type reminders
 REM [trigger(trigdate()+2)] [omitbeforewed(trigdate())] [omitafterwed(trigdate())] SATISFY 1
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF today() == trigdate()
    SET blau_tonne 1
+ELSE
+  IF today() + 1 == trigdate()
+      SET day_before 1
+  ENDIF
 ENDIF  
 
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF 1 == gruene_tonne && 0 == gelber_tonne && 0 == blau_tonne && 0 == weis_tonne
  MSG Tonne: Gr
 ENDIF
 
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF 1 == gruene_tonne && 1 == gelber_tonne && 0 == blau_tonne && 0 == weis_tonne
  MSG Tonne: Gr, Gl
 ENDIF
 
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF 1 == gruene_tonne && 1 == gelber_tonne && 1 == blau_tonne && 0 == weis_tonne
  MSG Tonne: Gr, Gl, Bl
 ENDIF
 
-#!P: The next IF evaluated false...
-#!P: REM statements in IF block not checked for purging.
 IF 1 == gruene_tonne && 1 == gelber_tonne && 1 == blau_tonne && 1 == weis_tonne
  MSG Tonne: Gr, Gl, Bl, We
+ENDIF
+
+IF 1 == day_before
+ AT 21:00 MSG Rubbish
 ENDIF
